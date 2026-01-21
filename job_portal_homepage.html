@@ -1,0 +1,267 @@
+<!-- DOCTYPE: Tells browser this is HTML5 document -->
+<!DOCTYPE html>
+
+<!-- HTML Root Element: lang="en" specifies English language -->
+<html lang="en">
+
+<!-- HEAD: Contains metadata and styling (not visible on page) -->
+<head>
+    <!-- Meta charset: Specifies character encoding as UTF-8 (supports all languages) -->
+    <meta charset="UTF-8">
+    
+    <!-- Meta viewport: Makes website responsive on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title: Appears in browser tab -->
+    <title>JobHub - Find Jobs</title>
+    
+    <!-- STYLE: All CSS styling for the webpage -->
+    <style>
+        /* UNIVERSAL STYLES: Apply to all elements */
+        * {
+            margin: 0;        /* Remove default spacing around all elements */
+            padding: 0;       /* Remove default internal spacing */
+            box-sizing: border-box;  /* Include padding/border in width/height calculation */
+        }
+
+        /* BODY STYLES: Main page background and font */
+        body {
+            font-family: Arial, sans-serif;  /* Set main font */
+            background-color: #f5f5f5;       /* Light gray background */
+        }
+
+        /* HEADER STYLES: Top navigation bar styling */
+        header {
+            background-color: #005AA7;  /* Blue header background */
+            color: white;               /* White text color */
+            padding: 15px 30px;         /* Space inside header */
+            display: flex;              /* Arrange items in a row */
+            justify-content: space-between;  /* Space logo and nav apart */
+            align-items: center;        /* Vertically align items */
+        }
+
+        /* HEADER LINKS: Navigation link styling */
+        header a {
+            color: white;           /* White link text */
+            text-decoration: none;  /* Remove underline */
+            margin-left: 20px;      /* Space between links */
+            font-size: 14px;        /* Link text size */
+        }
+
+        /* SEARCH SECTION: Blue search area styling */
+        .search-section {
+            background: #005AA7;    /* Same blue as header */
+            color: white;           /* White text */
+            padding: 30px 20px;     /* Space inside section */
+            text-align: center;     /* Center all content */
+        }
+
+        /* SEARCH BOX CONTAINER: Arranges search inputs */
+        .search-box {
+            display: flex;           /* Arrange items in a row */
+            gap: 10px;              /* Space between inputs */
+            justify-content: center; /* Center the inputs */
+            flex-wrap: wrap;        /* Wrap on small screens */
+        }
+
+        /* SEARCH INPUT FIELDS: Job title and location inputs */
+        .search-box input {
+            padding: 10px 15px;   /* Space inside input */
+            border: none;         /* No border */
+            border-radius: 4px;   /* Slightly rounded corners */
+            width: 200px;         /* Fixed width */
+        }
+
+        /* SEARCH BUTTON STYLING */
+        .search-box button {
+            padding: 10px 25px;              /* Space inside button */
+            background-color: #ff6b35;       /* Orange color */
+            color: white;                    /* White text */
+            border: none;                    /* No border */
+            border-radius: 4px;              /* Rounded corners */
+            cursor: pointer;                 /* Pointer cursor on hover */
+            font-weight: bold;               /* Bold text */
+        }
+
+        /* SEARCH BUTTON HOVER: Changes color when mouse hovers */
+        .search-box button:hover {
+            background-color: #e55a2b;  /* Darker orange on hover */
+        }
+
+        /* CONTAINER: Main content area styling */
+        .container {
+            max-width: 1000px;  /* Max width limit */
+            margin: 30px auto;  /* Center container and add top/bottom space */
+            padding: 0 20px;    /* Side padding */
+        }
+
+        /* H2 HEADING: "Latest Jobs" title styling */
+        h2 {
+            font-size: 20px;        /* Heading size */
+            margin-bottom: 20px;    /* Space below heading */
+            color: #333;            /* Dark gray text */
+        }
+
+        /* JOB CARD: Individual job listing box styling */
+        .job-card {
+            background: white;              /* White background */
+            border: 1px solid #ddd;         /* Light gray border */
+            padding: 20px;                  /* Space inside card */
+            margin-bottom: 15px;            /* Space between cards */
+            border-radius: 4px;             /* Rounded corners */
+            display: flex;                  /* Arrange items in row */
+            justify-content: space-between; /* Spread job info and button apart */
+            align-items: center;            /* Vertically center items */
+        }
+
+        /* JOB TITLE: Job position name styling */
+        .job-card h3 {
+            color: #005AA7;        /* Blue color */
+            font-size: 16px;       /* Title size */
+            margin-bottom: 5px;    /* Space below title */
+        }
+
+        /* JOB INFO TEXT: Company, salary, location details */
+        .job-card p {
+            color: #666;           /* Gray text */
+            font-size: 13px;       /* Small text */
+            margin-bottom: 3px;    /* Small space between lines */
+        }
+
+        /* APPLY BUTTON: Apply button styling */
+        .apply-btn {
+            background-color: #ff6b35;  /* Orange background */
+            color: white;               /* White text */
+            border: none;               /* No border */
+            padding: 8px 18px;          /* Space inside button */
+            border-radius: 4px;         /* Rounded corners */
+            cursor: pointer;            /* Pointer cursor */
+            font-weight: bold;          /* Bold text */
+        }
+
+        /* APPLY BUTTON HOVER: Changes color on hover */
+        .apply-btn:hover {
+            background-color: #e55a2b;  /* Darker orange */
+        }
+
+        /* FOOTER: Bottom section styling */
+        footer {
+            background-color: #333;  /* Dark gray background */
+            color: white;            /* White text */
+            padding: 20px;           /* Space inside footer */
+            text-align: center;      /* Center all text */
+            margin-top: 30px;        /* Space above footer */
+            font-size: 12px;         /* Small text size */
+        }
+
+        /* FOOTER LINKS: Styling for links in footer */
+        footer a {
+            color: #ccc;            /* Light gray links */
+            text-decoration: none;  /* No underline */
+            margin: 0 10px;         /* Space around links */
+        }
+    </style>
+</head>
+
+<!-- BODY: All visible content of the website -->
+<body>
+    <!-- ==================== HEADER SECTION ==================== -->
+    <!-- HEADER: Top navigation bar with logo and menu -->
+    <header>
+        <!-- Logo: Website name "JobHub" -->
+        <div style="font-size: 24px; font-weight: bold;">JobHub</div>
+        
+        <!-- NAV: Navigation menu with links -->
+        <nav>
+            <!-- Link to Jobs section -->
+            <a href="#jobs">Jobs</a>
+            <!-- Link to Login page -->
+            <a href="#login">Login</a>
+            <!-- Link to Sign Up page -->
+            <a href="#signup">Sign Up</a>
+        </nav>
+    </header>
+
+    <!-- ==================== SEARCH SECTION ==================== -->
+    <!-- SEARCH SECTION: Blue area with search functionality -->
+    <section class="search-section">
+        <!-- Main heading -->
+        <h2 style="color: white; margin-bottom: 15px;">Find Your Dream Job</h2>
+        
+        <!-- SEARCH BOX: Contains input fields and search button -->
+        <div class="search-box">
+            <!-- Input for job title or keyword search -->
+            <input type="text" placeholder="Job title">
+            <!-- Input for location search -->
+            <input type="text" placeholder="Location">
+            <!-- Search button to perform search -->
+            <button>Search</button>
+        </div>
+    </section>
+
+    <!-- ==================== JOBS LISTING SECTION ==================== -->
+    <!-- CONTAINER: Main content area with all job listings -->
+    <div class="container">
+        <!-- Heading: "Latest Jobs" -->
+        <h2>Latest Jobs</h2>
+
+        <!-- ========== JOB CARD 1: Senior Software Developer ========== -->
+        <!-- JOB CARD: Box containing one job listing -->
+        <div class="job-card">
+            <!-- JOB INFO: Left side with job details -->
+            <div>
+                <!-- Job Title -->
+                <h3>Senior Software Developer</h3>
+                <!-- Company Name (bolded) -->
+                <p><strong>Tech Innovations Inc.</strong></p>
+                <!-- Salary Range and Location -->
+                <p>₹15,00,000 - ₹25,00,000 per year | Bangalore</p>
+                <!-- Experience Required and Job Type -->
+                <p>Experience: 5+ years | Full-time</p>
+            </div>
+            <!-- APPLY BUTTON: Right side button to apply for job -->
+            <button class="apply-btn">Apply</button>
+        </div>
+
+        <!-- ========== JOB CARD 2: Data Scientist ========== -->
+        <div class="job-card">
+            <div>
+                <h3>Data Scientist</h3>
+                <p><strong>Data Solutions Ltd.</strong></p>
+                <p>₹12,00,000 - ₹20,00,000 per year | Mumbai</p>
+                <p>Experience: 3+ years | Full-time</p>
+            </div>
+            <button class="apply-btn">Apply</button>
+        </div>
+
+        <!-- ========== JOB CARD 3: UI/UX Designer ========== -->
+        <div class="job-card">
+            <div>
+                <h3>UI/UX Designer</h3>
+                <p><strong>Creative Studios</strong></p>
+                <p>₹8,00,000 - ₹14,00,000 per year | Delhi</p>
+                <p>Experience: 2+ years | Full-time</p>
+            </div>
+            <button class="apply-btn">Apply</button>
+        </div>
+
+        <!-- ========== JOB CARD 4: Product Manager ========== -->
+        <div class="job-card">
+            <div>
+                <h3>Product Manager</h3>
+                <p><strong>GlobalTech Solutions</strong></p>
+                <p>₹16,00,000 - ₹28,00,000 per year | Pune</p>
+                <p>Experience: 4+ years | Full-time</p>
+            </div>
+            <button class="apply-btn">Apply</button>
+        </div>
+    </div>
+
+    <!-- ==================== FOOTER SECTION ==================== -->
+    <!-- FOOTER: Bottom section with links and copyright info -->
+    <footer>
+        <!-- Copyright symbol and footer links -->
+        <p>&copy; 2026 JobHub | <a href="#">About</a> | <a href="#">Contact</a> | <a href="#">Privacy</a></p>
+    </footer>
+</body>
+</html>
